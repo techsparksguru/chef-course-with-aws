@@ -108,4 +108,4 @@ Anyone who is having software engineering background. No prior knowledge on ruby
 - knife upload Vs berks upload (dependacy management)
 
 # Author
-ParthaSaradhiKonda<<parthasaradhi.konda@gmail.com>>
+ParthaSaradhiKonda <<pkonda@techsparks.guru>>
