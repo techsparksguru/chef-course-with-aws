@@ -1,0 +1,34 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "chefserver" do |chefserver|
+	chefserver.vm.box = "ubuntu/xenial64"
+	chefserver.vm.hostname = "chefserver"
+	chefserver.vm.network "private_network", ip: "192.168.99.100"
+    chefserver.vm.provision :shell, path: "chefserver.bootstrap.sh"
+    chefserver.vm.provider :virtualbox do |vb|
+          vb.customize ["modifyvm", :id, "--memory", "4096"]
+          vb.customize ["modifyvm", :id, "--cpus", "2"]
+    end
+  end
+
+  config.vm.define "chefworkstation" do |chefworkstation|
+	chefworkstation.vm.box = "ubuntu/xenial64"
+	chefworkstation.vm.hostname = "chefworkstation"
+	chefworkstation.vm.network "private_network", ip: "192.168.99.101"
+    chefworkstation.vm.provision :shell, path: "workstation.bootstrap.sh"
+    chefworkstation.vm.provider :virtualbox do |vb|
+          vb.customize ["modifyvm", :id, "--memory", "2048"]
+          vb.customize ["modifyvm", :id, "--cpus", "1"]
+    end
+  end
+
+  config.vm.define "chefclient" do |chefclient|
+	chefclient.vm.box = "ubuntu/xenial64"
+	chefclient.vm.hostname = "chefclient"
+    chefclient.vm.network "private_network", ip: "192.168.99.102"
+    chefclient.vm.provision :shell, path: "chefclient.bootstrap.sh"
+    chefclient.vm.provider :virtualbox do |vb|
+          vb.customize ["modifyvm", :id, "--memory", "1012"]
+          vb.customize ["modifyvm", :id, "--cpus", "1"]
+    end
+  end
+end
