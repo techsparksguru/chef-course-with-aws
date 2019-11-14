@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
 	chefworkstation.vm.box = "ubuntu/xenial64"
 	chefworkstation.vm.hostname = "chefworkstation"
 	chefworkstation.vm.network "private_network", ip: "192.168.99.101"
-    chefworkstation.vm.provision :shell, path: "workstation.bootstrap.sh"
+    chefworkstation.vm.provision :shell, path: "chefworkstation.bootstrap.sh"
     chefworkstation.vm.provider :virtualbox do |vb|
           vb.customize ["modifyvm", :id, "--memory", "2048"]
           vb.customize ["modifyvm", :id, "--cpus", "1"]
