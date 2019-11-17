@@ -8,11 +8,15 @@ const port = 3000;
 const server = http.createServer(async (req, res) => {
   var url_parts = url.parse(req.url, true);
   var query = url_parts.query;
-
-  const response = await imdb.get({ name: query.movie },
-    {
-      apiKey: 'xxxxxx', timeout: 30000
-    });
+  let response;
+  if (query.movie) {
+    response = await imdb.get({ name: query.movie },
+      {
+        apiKey: 'ca8c3d9', timeout: 30000
+      });
+  } else {
+    response = "Please provide movie name to search";
+  }
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(response));

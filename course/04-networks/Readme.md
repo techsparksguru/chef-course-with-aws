@@ -11,7 +11,3 @@ If a network is exposed to internet and somebody from internet can be able to ac
 
 ## Private network
 Outside of this network can't be able to access the machine of this network.
-
-
-[TODO]: example to express that how to check reachability (command focused)
-[internal]if asks - OSI layer - some explanation
