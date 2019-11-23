@@ -12,7 +12,7 @@ app.get('/', async function (req, res, next) {
     if (query.movie) {
       response = await imdb.get({ name: query.movie },
         {
-          apiKey: 'ca8c3d9', timeout: 10000
+          apiKey: 'xxxx', timeout: 10000
         }).catch(function(){
             return {};
         });
