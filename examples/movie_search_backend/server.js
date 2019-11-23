@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const imdb = require('imdb-api');
+const IMDB_API_KEY = 'xxxx';
 
 var app = express()
 
@@ -12,7 +13,7 @@ app.get('/', async function (req, res, next) {
     if (query.movie) {
       response = await imdb.get({ name: query.movie },
         {
-          apiKey: 'xxxx', timeout: 10000
+          apiKey: IMDB_API_KEY, timeout: 10000
         }).catch(function(){
             return {};
         });
